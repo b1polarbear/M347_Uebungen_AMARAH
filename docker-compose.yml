@@ -14,6 +14,17 @@ services:
     networks:
       - mynet
 
+  phpmyadmin:
+    image: phpmyadmin:latest
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: mysql
+    depends_on:
+      - mysql
+    networks:
+      - mynet
+
 networks:
   mynet:
     driver: bridge
